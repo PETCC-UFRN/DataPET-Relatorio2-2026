@@ -7,62 +7,41 @@ Este repositório contém um Jupyter Notebook projetado para analisar como o fen
 
 * **Python 3.x** instalado na sua máquina.
 
-## Como configurar o Ambiente Virtual (venv) e rodar o Notebook
+## Como configurar o Ambiente Virtual e rodar o Notebook
 
-Siga os passos abaixo no terminal do seu sistema operacional para criar um ambiente isolado e executar o projeto de forma limpa.
-
-### 1. Criar o ambiente virtual
-
-Navegue pelo terminal até a pasta onde o seu arquivo `.ipynb` está salvo e execute:
+Como o ambiente virtual do projeto já está configurado você apenas precisa instalar o gerenciador de pacotes e sincronizar os pacotes faltantes seguindo os seguintes passos.
+### 1. Instalar o UV
 
 ```bash
-python -m venv venv
-
-```
-
-### 2. Ativar o ambiente virtual
-
-A ativação varia conforme o seu sistema operacional:
-
-* **Windows (Prompt de Comando ou PowerShell):**
-```bash
-venv\Scripts\activate
-
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 
-* **Linux ou macOS:**
-```bash
-source venv/bin/activate
-
-```
-
-
-
-*(Dica: Ao ativar, você verá o prefixo `(venv)` no seu terminal).*
-
-### 3. Instalar o Jupyter
-
-Com o ambiente ativado, instale a interface do Jupyter para conseguir abrir e interpretar o arquivo `.ipynb`:
+### 3. Sincronizar os pacotes
+Para instalar pacotes faltantes, no diretório do projeto execute:
 
 ```bash
-pip install jupyter
-
+uv sync
 ```
+
 
 ### 4. Abrir o Notebook
 
 Inicie o servidor local do Jupyter rodando:
 
 ```bash
+source .venv/bin/activate  
 jupyter notebook
-
 ```
 
 Uma aba será aberta automaticamente no seu navegador. Navegue pela interface, clique no arquivo `.ipynb` do projeto e ele será carregado.
 
-### 5. Execução e Dependências Automáticas
+Ou utilize uma extensão no seu IDE para visualização de notebooks jupyter.
+## Adição de dependências
+Para adicionar bibliotecas python ao ambiente virtual, navegue até o diretório do projeto e execute:
 
-Não é necessário instalar as bibliotecas de análise de dados manualmente via terminal. A primeira célula de código do próprio notebook já contém um script estruturado que verifica e instala automaticamente todas as dependências necessárias, como `pandas`, `numpy`, `requests`, `matplotlib`, `seaborn`, `scipy`, `statsmodels` e APIs meteorológicas.
+```bash
+uv add <nome-do-pacote>
+```
 
-Basta rodar as células do notebook sequencialmente (usando `Shift + Enter`) para que o ambiente configure as bibliotecas e carregue as bases de dados históricas da NOAA.
+O pacote será instalado e adicionado na lista de dependências automaticamente.
