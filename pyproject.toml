@@ -1,0 +1,20 @@
+[project]
+name = "datapet-relatorio2-2026"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "rene", email = "renegarmater@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "jupyter>=1.1.1",
+    "pandas>=2.3.3",
+]
+
+[project.scripts]
+datapet-relatorio2-2026 = "datapet_relatorio2_2026:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
